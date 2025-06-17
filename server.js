@@ -83,7 +83,7 @@ app.post('/generate', (req, res) => {
   res.redirect('/admin');
 });
 
-const PORT = process.env.PORT || 8080;
+ 
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
@@ -126,7 +126,5 @@ app.get('/au', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'au.html'));
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
+ 
+ 
