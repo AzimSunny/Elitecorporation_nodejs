@@ -83,6 +83,11 @@ app.post('/generate', (req, res) => {
   res.redirect('/admin');
 });
 
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
 // Export codes
 const exportRouter = require('./routes/export');
 app.use('/export', exportRouter);
