@@ -1,3 +1,7 @@
+const basicAuth = require('express-basic-auth');
+require('dotenv').config(); // যেন .env ফাইল কাজ করে
+
+// -----------------
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
@@ -52,9 +56,18 @@ app.post('/verify', (req, res) => {
   res.render('index', { result: '✅ এই কোডটি বৈধ, প্রোডাক্টটি আসল।' });
 });
 
+app.use('/admin', basicAuth({
+  users: { [process.env.ADMIN_USER]: process.env.ADMIN_PASS },
+  challenge: true
+}));
+
+// ----------------------------
 // Admin panel
 app.get('/admin', (req, res) => {
   res.render('admin', { codes });
+});
+app.get('/admin', (req, res) => {
+  res.send('Welcome to the Admin Panel 🔐');
 });
 
 app.post('/generate', (req, res) => {
