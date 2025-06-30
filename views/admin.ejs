@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <title>এডমিন - কোড তৈরি</title>
    <style>
-    body{
-      padding: 100px;
-    }
+    
    </style>
 </head>
 <body>
@@ -36,7 +34,7 @@
 <br>
 
 <h3>বর্তমান কোড তালিকা</h3>
-<ol>
+<ol style="padding-left: 140px;">
   <% codes.forEach(code => { %>
     <li><%= code.code %> - <%= code.used ? 'USED' : 'UNUSED' %></li>
   <% }) %>
